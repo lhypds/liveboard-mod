@@ -6,4 +6,3 @@ Modules
 HeatMap
 Tokyo Heatmap | 東京ヒートマップ | 东京热力图
 Data source: STR / CoStar
-
