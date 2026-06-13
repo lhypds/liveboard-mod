@@ -12,4 +12,5 @@ export const config = {
   h: 18,
   minW: 16,
   minH: 16,
+  comp: {},
 };
