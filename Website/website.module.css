@@ -12,6 +12,12 @@
   display: block;
 }
 
+.blocker {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .placeholder {
   display: flex;
   align-items: center;

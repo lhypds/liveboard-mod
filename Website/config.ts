@@ -14,6 +14,7 @@ export const config = {
   minH: 4,
   comp: {
     url: "",
+    allowInteract: true,
     crop: {
       x: 0,
       y: 0,

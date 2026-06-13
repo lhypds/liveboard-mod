@@ -20,8 +20,9 @@ type CropComp = {
 };
 
 export default function Website({ config }: { config: Record<string, unknown> }) {
-  const comp = config.comp as { url?: string; crop?: CropComp } | undefined;
+  const comp = config.comp as { url?: string; allowInteract?: boolean; crop?: CropComp } | undefined;
   const url = typeof comp?.url === "string" ? comp.url : loadUrl();
+  const allowInteract = comp?.allowInteract !== false;
   const crop = comp?.crop;
 
   const cropX = crop?.x ?? 0;
@@ -53,6 +54,7 @@ export default function Website({ config }: { config: Record<string, unknown> })
 
   return (
     <div className={styles.container}>
+      {!allowInteract && <div className={styles.blocker} />}
       <iframe
         src={url}
         style={
