@@ -4,7 +4,7 @@ import * as HeatMap from "./HeatMap";
 import * as IFrame from "./IFrame";
 
 export type ModuleEntry = {
-  component: ComponentType;
+  component: ComponentType<{ config: Record<string, unknown> }>;
   config: {
     i: string;
     title: Record<string, string>;

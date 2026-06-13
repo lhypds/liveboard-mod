@@ -13,7 +13,7 @@ const LANG_MAP: Record<string, string> = {
   zh: "zh-Hans",
 };
 
-export default function HeatMap() {
+export default function HeatMap(_: { config: Record<string, unknown> }) {
   const { i18n } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);

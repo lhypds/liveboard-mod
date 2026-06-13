@@ -11,8 +11,8 @@ function loadUrl(): string {
   }
 }
 
-export default function IFrame() {
-  const url = loadUrl();
+export default function IFrame({ config }: { config: Record<string, unknown> }) {
+  const url = typeof config.url === "string" ? config.url : loadUrl();
 
   if (!url) {
     return (
