@@ -1,8 +1,10 @@
 {
   "HeatMap": {
-    "enabled": true
+    "enabled": true,
+    "allowMultipleInstances": false
   },
   "Website": {
-    "enabled": true
+    "enabled": true,
+    "allowMultipleInstances": true
   }
 }

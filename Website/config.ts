@@ -1,5 +1,5 @@
 export const config = {
-  i: "website",
+  i: "Website",
   title: { en: "Website", ja: "ウェブサイト", zh: "网页组件" },
   info: {
     dataSource: { en: "External URL", ja: "外部URL", zh: "外部URL" },

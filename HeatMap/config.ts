@@ -1,5 +1,5 @@
 export const config = {
-  i: "heatmap",
+  i: "HeatMap",
   title: { en: "Tokyo Heatmap", ja: "東京ヒートマップ", zh: "东京热力图" },
   info: {
     dataSource: { en: "STR + internal PMS", ja: "STR + 自社PMS", zh: "STR + 内部 PMS" },
