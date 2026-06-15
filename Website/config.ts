@@ -17,6 +17,8 @@ export const config = {
     // true | false | "no-scroll"
     // `false` will block all interactions with a blocker
     allowInteract: "no-scroll",
+    // 0 = no refresh, positive integer = refresh interval in seconds
+    refreshRate: 0,
     crop: {
       x: 0,
       y: 0,

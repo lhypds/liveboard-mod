@@ -20,11 +20,12 @@ type CropComp = {
 };
 
 export default function Website({ config }: { config: Record<string, unknown> }) {
-  const comp = config.comp as { url?: string; allowInteract?: true | false | "no-scroll"; crop?: CropComp } | undefined;
+  const comp = config.comp as { url?: string; allowInteract?: true | false | "no-scroll"; refreshRate?: number; crop?: CropComp } | undefined;
   const url = typeof comp?.url === "string" ? comp.url : loadUrl();
   const allowInteract = comp?.allowInteract ?? true;
   const blockAll = allowInteract === false;
   const blockScroll = allowInteract === "no-scroll";
+  const refreshRate = typeof comp?.refreshRate === "number" ? comp.refreshRate : 0;
   const crop = comp?.crop;
 
   const cropX = crop?.x ?? 0;
@@ -41,6 +42,14 @@ export default function Website({ config }: { config: Record<string, unknown> })
       else iframeRef.current.removeAttribute("scrolling");
     }
   }, [blockScroll]);
+
+  useEffect(() => {
+    if (!refreshRate || refreshRate <= 0) return;
+    const id = setInterval(() => {
+      if (iframeRef.current) iframeRef.current.src = iframeRef.current.src;
+    }, refreshRate * 1000);
+    return () => clearInterval(id);
+  }, [refreshRate]);
 
   const handleLoad = useCallback(
     (e: React.SyntheticEvent<HTMLIFrameElement>) => {
