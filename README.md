@@ -1,15 +1,16 @@
 
-liveboard-mod
-=============
+liveboard-mod-basic
+===================
 
 
-[Liveboard](https://github.com/lhypds/liveboard) module template.
+Basic [Liveboard](https://github.com/lhypds/liveboard) module.
 
 
 Setup
 -----
 
-Clone to `liveboard/src`, rename the folder to `modules` to use.  
+`board.config.json`  
+Setup the repo URL.  
 
 `modules.config.json`  
 Modules config file, enable or disable modules, etc.  
