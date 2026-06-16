@@ -10,10 +10,6 @@ export const config = {
           key: { en: "Data Source", ja: "データソース", zh: "数据来源" },
           value: { en: "External URL", ja: "外部URL", zh: "外部URL" },
         },
-        {
-          key: { en: "Refresh Frequency", ja: "更新頻度", zh: "刷新频率" },
-          value: { en: "Always live", ja: "常時ライブ", zh: "实时" },
-        },
       ],
     },
   ],
