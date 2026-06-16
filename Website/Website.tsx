@@ -20,13 +20,14 @@ type CropComp = {
 };
 
 export default function Website({ config }: { config: Record<string, unknown> }) {
-  const comp = config.comp as { url?: string; allowInteract?: true | false | "no-scroll"; refreshRate?: number; crop?: CropComp } | undefined;
+  const comp = config.comp as { url?: string; allowInteract?: true | false | "no-scroll"; refreshRate?: number; crop?: CropComp; zoom?: number } | undefined;
   const url = typeof comp?.url === "string" ? comp.url : loadUrl();
   const allowInteract = comp?.allowInteract ?? true;
   const blockAll = allowInteract === false;
   const blockScroll = allowInteract === "no-scroll";
   const refreshRate = typeof comp?.refreshRate === "number" ? comp.refreshRate : 0;
   const crop = comp?.crop;
+  const zoom = typeof comp?.zoom === "number" && comp.zoom > 0 ? comp.zoom : 1;
 
   const cropX = crop?.x ?? 0;
   const cropY = crop?.y ?? 0;
@@ -87,10 +88,21 @@ export default function Website({ config }: { config: Record<string, unknown> })
                 width: renderW,
                 height: renderH,
                 border: "none",
+                transform: zoom !== 1 ? `scale(${zoom})` : undefined,
+                transformOrigin: zoom !== 1 ? "top left" : undefined,
               }
-            : undefined
+            : zoom !== 1
+              ? {
+                  width: `${100 / zoom}%`,
+                  height: `${100 / zoom}%`,
+                  border: "none",
+                  display: "block",
+                  transform: `scale(${zoom})`,
+                  transformOrigin: "top left",
+                }
+              : undefined
         }
-        className={hasCrop ? undefined : styles.iframe}
+        className={hasCrop || zoom !== 1 ? undefined : styles.iframe}
         onLoad={handleLoad}
         title="Embedded content"
         sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
