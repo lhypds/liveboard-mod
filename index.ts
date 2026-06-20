@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import moduleConfig from "./modules.config.json";
+import moduleConfig from "./modules.config.json" with { type: "json" };
 import * as HeatMap from "./HeatMap";
 import * as Website from "./Website";
 
@@ -8,11 +8,13 @@ export type ModuleEntry = {
   config: {
     i: string;
     title: Record<string, string>;
-    info: {
-      dataSource: Record<string, string>;
-      refreshFrequency: Record<string, string>;
-      refreshAgeMinutes: number;
-    };
+    info: Array<{
+      title: Record<string, string>;
+      items: Array<{
+        key: Record<string, string>;
+        value: Record<string, string>;
+      }>;
+    }>;
     x: number;
     y: number;
     w: number;
